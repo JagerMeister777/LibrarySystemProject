@@ -11,11 +11,21 @@ public class Main {
 
     boolean isLoop = true;
     while (isLoop) {
+      Map<Integer,String> menuMap = new HashMap<>();
+      menuMap.put(0,"システム終了");
+      menuMap.put(1,"本を一覧表示");
+      menuMap.put(2,"本を借りる");
+      menuMap.put(3,"本を返す");
+      menuMap.put(4,"本のタイトル検索");
+      menuMap.put(5,"並び替えて表示");
+
       System.out.println("===================================");
-      System.out.println("1. 本を一覧表示");
-      System.out.println("2. 本を借りる");
-      System.out.println("3. 本を返す");
-      System.out.println("4. 終了");
+      System.out.println("1. " + menuMap.get(1));
+      System.out.println("2. " + menuMap.get(2));
+      System.out.println("3. " + menuMap.get(3));
+      System.out.println("4. " + menuMap.get(4));
+      System.out.println("5. " + menuMap.get(5));
+      System.out.println("0. " + menuMap.get(0));
       System.out.println("===================================");
       System.out.print("入力してください。 : ");
       String number = scanner.next();
@@ -23,11 +33,11 @@ public class Main {
 
       try {
         int n = Integer.parseInt(number);
-        if (n == 4) {
+        if (n == 0) {
           System.out.println("システムを終了します。");
           isLoop = false;
-        } else if (n >= 4) {
-          System.out.println("１～４の数値で入力してください。");
+        } else if (n >= menuMap.size()) {
+          System.out.println("表示されている数値の範囲内で入力してください。");
         } else {
           library.reception(n, scanner);
         }

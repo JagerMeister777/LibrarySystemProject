@@ -6,8 +6,8 @@ public class AudioBook extends Book{
   private final String narrator;
   private final int durationMin;
 
-  public AudioBook(int id,String title, String narrator, int durationMin) {
-    super(id,title);
+  public AudioBook(int id,String title, String author, int publishYear, String narrator, int durationMin) {
+    super(id, title, author, publishYear);
     this.narrator = narrator;
     this.durationMin = durationMin;
   }
@@ -15,6 +15,6 @@ public class AudioBook extends Book{
   @Override
   public void displayInfo() {
     String status = isAvailable() ? "貸出可" : "貸出中";
-    System.out.println(super.getId() + " | " + super.getTitle() + " | " + narrator + " | " + durationMin + " | " + status );
+    System.out.println(super.getId() + " | " + super.getTitle() + " | " + super.getAuthor() + " | " + super.getPublishYear() + " | " + narrator + " | " + durationMin + " | " + status );
   }
 }
