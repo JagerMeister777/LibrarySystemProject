@@ -59,8 +59,12 @@ public class Library {
   public String release(int id) throws NullPointerException {
     Book book = findBookById(id);
     try {
-      book.returnBook();
-      return book.getTitle() + " を返却しました。";
+      if (book.isAvailable()) {
+        return book.getTitle() + " は貸し出されていません。";
+      } else {
+        book.returnBook();
+        return book.getTitle() + " を返却しました。";
+      }
     } catch (NullPointerException e) {
       return "選択したIDの本が存在しませんでした。 ID: " + id;
     }
