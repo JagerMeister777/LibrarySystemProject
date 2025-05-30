@@ -32,7 +32,7 @@ public class Library {
     public List<Book> findBookByTitle (String title) {
       List<Book> bookList = new ArrayList<>();
     for (Book book : books) {
-      String targetTitle = book.getTitle().toLowerCase();
+      String targetTitle = book.getTitle();
       if (targetTitle.equals(title) || targetTitle.contains(title)) {
         bookList.add(book);
       }
